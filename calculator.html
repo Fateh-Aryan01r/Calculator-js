@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+
+    <title>Calculator</title>
+</head>
+<body class="bg-gradient-to-r from-sky-600 via-blue-400 to-indigo-900 to-90% flex items-center justify-center min-h-screen bg-gray-200">
+    <div class="bg-white p-6 rounded-2xl shadow-lg w-80">
+        <input id="display" type="text" class="w-full text-right text-2xl p-4 mb-4 border border-gray-300 rounded bg-gray-100" placeholder="0" readonly />
+    
+        <div class="grid grid-cols-4 gap-3">
+          <button onclick="clearDisplay()" class="bg-red-500 text-white py-3 rounded">C</button>
+          <button onclick="backspace()" class="bg-gray-400 text-white py-3 rounded">⌫</button>
+          <button onclick="append('%')" class="bg-gray-400 text-white py-3 rounded">%</button>
+          <button onclick="append('/')" class="bg-blue-500 text-white py-3 rounded">÷</button>
+    
+          <button onclick="append('7')" class="bg-gray-100 py-3 rounded">7</button>
+          <button onclick="append('8')" class="bg-gray-100 py-3 rounded">8</button>
+          <button onclick="append('9')" class="bg-gray-100 py-3 rounded">9</button>
+          <button onclick="append('*')" class="bg-blue-500 text-white py-3 rounded">×</button>
+    
+          <button onclick="append('4')" class="bg-gray-100 py-3 rounded">4</button>
+          <button onclick="append('5')" class="bg-gray-100 py-3 rounded">5</button>
+          <button onclick="append('6')" class="bg-gray-100 py-3 rounded">6</button>
+          <button onclick="append('-')" class="bg-blue-500 text-white py-3 rounded">−</button>
+    
+          <button onclick="append('1')" class="bg-gray-100 py-3 rounded">1</button>
+          <button onclick="append('2')" class="bg-gray-100 py-3 rounded">2</button>
+          <button onclick="append('3')" class="bg-gray-100 py-3 rounded">3</button>
+          <button onclick="append('+')" class="bg-blue-500 text-white py-3 rounded">+</button>
+    
+          <button onclick="append('0')" class="col-span-2 bg-gray-100 py-3 rounded">0</button>
+          <button onclick="append('.')" class="bg-gray-100 py-3 rounded">.</button>
+          <button onclick="calculate()" class="bg-green-500 text-white py-3 rounded">=</button>
+        </div>
+      </div>
+
+
+      <Script>
+        const display = document.getElementById('display');
+
+        function append(value){
+            display.value += value;
+        }
+
+
+        function backspace(){
+            display.value = display.value.slice(0, -1);
+        }
+
+        function clearDisplay(value){
+            display.value = "";
+        }
+
+            function calculate(){
+                try{
+                    display.value = eval(display.value);
+                } catch (error) {
+                    display.value = "Error";
+                }
+            }
+
+
+      </Script>
+
+    
+</body>
+</html>
