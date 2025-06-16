@@ -1,6 +1,6 @@
-const display = document.getElementById('display');
+const display = document.getElementById('display'); //lets get element 
 
-function append(value){
+function append(value){  // this function show append value on click button
     display.value += value;
 }
 
